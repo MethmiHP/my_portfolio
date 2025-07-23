@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Video Showcase</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 20px 20px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: background 0.2s;
+        }
+        .back-link:hover {
+            background: #4a90e2;
+            color: #1a1a2e;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #4a90e2, #7bb3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .video-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .video-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(74,144,226,0.2);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(74,144,226,0.1);
+        }
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #7bb3ff;
+            text-align: center;
+        }
+        video {
+            width: 100%;
+            max-width: 700px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            background: #000;
+        }
+        @media (max-width: 900px) {
+            .container { padding: 20px 5px; }
+            video { max-width: 100%; }
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.5rem; }
+            .video-card { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="my_portfolio1.html#projects" class="back-link">&larr; Back to Projects</a>
+        <h1>Project Video Showcase</h1>
+        <div class="video-showcase">
+            <div class="video-card">
+                <div class="video-title">Event Booking App (Figma Demo)</div>
+                <video controls poster="images/m.png">
+                    <source src="videos/Event booking App - Figma 2025-05-21 23-18-47_1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="video-card">
+                <div class="video-title">Project Demo (Untitled)</div>
+                <video controls poster="images/logo.jpg">
+                    <source src="videos/lv_0_20250523114732.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
