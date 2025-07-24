@@ -60,6 +60,21 @@
             --border-color: rgba(157, 78, 221, 0.3);
         }
 
+        /* Light Theme */
+[data-theme="light"] {
+    --primary-color: #2563eb;
+    --secondary-color: #3b82f6;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #e2e8f0;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-accent: #64748b;
+    --card-bg: rgba(248, 250, 252, 0.8);
+    --border-color: rgba(37, 99, 235, 0.2);
+}
+
+
         * {
             margin: 0;
             padding: 0;
@@ -107,6 +122,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .container-contact{
+            max-width:1200px;
+            
+            
         }
 
         /* Theme Selector */
@@ -461,6 +482,177 @@
     box-shadow: 0 15px 40px rgba(157, 78, 221, 0.4);
 }
 
+
+[data-theme="light"] body {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-tertiary) 100%);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .nav {
+    background: rgba(248, 250, 252, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .profile-image {
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 20px 60px rgba(37, 99, 235, 0.2);
+}
+
+[data-theme="light"] .skill-card {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .skill-card:hover {
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+[data-theme="light"] .project-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .project-card:hover {
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 1);
+}
+
+[data-theme="light"] .education-card,
+[data-theme="light"] .cert-card,
+[data-theme="light"] .stat-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .education-card:hover,
+[data-theme="light"] .cert-card:hover,
+[data-theme="light"] .stat-card:hover {
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 1);
+}
+
+[data-theme="light"] .video-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .video-card:hover {
+    box-shadow: 0 15px 35px rgba(37, 99, 235, 0.15);
+    background: rgba(255, 255, 255, 1);
+}
+
+[data-theme="light"] .about {
+    background: rgba(248, 250, 252, 0.8);
+}
+
+[data-theme="light"] .skills,
+[data-theme="light"] .education {
+    background: rgba(226, 232, 240, 0.3);
+}
+
+[data-theme="light"] .projects,
+[data-theme="light"] .contact,
+[data-theme="light"] .video-showcase-section {
+    background: rgba(248, 250, 252, 0.8);
+}
+
+[data-theme="light"] .footer {
+    background: rgba(30, 41, 59, 0.1);
+    color: var(--text-accent);
+}
+
+[data-theme="light"] .contact-form input,
+[data-theme="light"] .contact-form textarea,
+[data-theme="light"] .game-input {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .contact-form input::placeholder,
+[data-theme="light"] .contact-form textarea::placeholder {
+    color: var(--text-accent);
+}
+
+[data-theme="light"] .tech-tag,
+[data-theme="light"] .skill-tag {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--text-secondary);
+}
+
+[data-theme="light"] .tech-tag:hover,
+[data-theme="light"] .skill-tag:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+[data-theme="light"] .theme-selector {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .theme-option {
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .theme-option:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+[data-theme="light"] .theme-option.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+[data-theme="light"] .game-container {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .code-challenge {
+    background: var(--bg-secondary);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    color: var(--text-primary);
+}
+
+[data-theme="light"] .social-links a {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(37, 99, 235, 0.2);
+}
+
+[data-theme="light"] .project-link-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+/* Light theme button styles */
+[data-theme="light"] .cta-button,
+[data-theme="light"] .cv-download-btn {
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+}
+
+[data-theme="light"] .cta-button:hover,
+[data-theme="light"] .cv-download-btn:hover {
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.3);
+}
+
+[data-theme="light"] .game-trigger {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--primary-color);
+}
+
 /* Responsive Design for Buttons */
 @media (max-width: 768px) {
     .hero-buttons {
@@ -796,7 +988,7 @@
 }
         /* Contact Section */
         .contact {
-            padding: 60px 0;
+            padding: 100px 0;
             background: var(--card-bg);
             text-align: center;
         }
@@ -806,6 +998,7 @@
             margin: 0 auto;
             width: 100%;
             padding: 0;
+            
         }
 
         .contact-form {
@@ -853,6 +1046,7 @@
             justify-content: center;
             gap: 30px;
             margin: 0;
+            padding-top: 30px;
         }
 
         .social-links a {
@@ -1375,12 +1569,13 @@
 </head>
 <body data-theme="default">
     <!-- Theme Toggle Button -->
-    <button class="theme-toggle" onclick="toggleThemeSelector()">��</button>
+    <button class="theme-toggle" onclick="toggleThemeSelector()">🎨</button>
 
     <!-- Theme Selector -->
     <div class="theme-selector" id="themeSelector">
         <div class="theme-options">
             <div class="theme-option active" onclick="setTheme('default')">Default Blue</div>
+            <div class="theme-option" onclick="setTheme('light')">☀️ Light Mode</div>
             <div class="theme-option" onclick="setTheme('hacker')">🔰 Hacker Green</div>
             <div class="theme-option" onclick="setTheme('stranger')">👹 Stranger Things</div>
             <div class="theme-option" onclick="setTheme('space')">🚀 Space</div>
@@ -1429,7 +1624,9 @@
                 <div class="hero-text">
                     <h1>Hi, I'm Methmi</h1>
                     <h2>Programming Enthusiast</h2>
-                    <p>I'm a passionate software engineer with expertise in full-stack development. I love creating innovative solutions and turning complex problems into simple, beautiful designs.</p>
+                    <p>I’m a dedicated Software Engineering undergraduate with a strong interest in full-stack development.
+                         I enjoy building innovative applications, solving real-world problems through code, and turning 
+                         ideas into user-friendly digital experiences.</p>
                     <!-- <div class="hero-buttons">
                         <a href="#contact" class="cta-button">Get In Touch</a>
                         <a href="#projects" class="cta-secondary">View My Work</a>
@@ -1499,71 +1696,7 @@
         </div>
     </section>
 
-    
 
-    <!-- Projects Section -->
-    <!-- <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image"><img src="./images/music.jpg" class="img1" height="270px"></div>
-                    <div class="project-content">
-                        <h3>Music Store</h3>
-                        <p>A full-stack e-commerce solution built with Java and PHP. Features include user authentication, payment processing, and admin dashboard.</p>
-                        <div class="project-links">
-                            <a href="#">Live Demo</a>
-                            <a href="#">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"><img src="./images/gas.jpg" class="img2" height="270px"></div>
-                    <div class="project-content">
-                        <h3>Gases management System</h3>
-                        <p>A collaborative Gases & accessories management system with real-time updates.</p>
-                        <div class="project-links">
-                            <a href="https://methmihp.github.io/Gas-Management/">Live Demo</a>
-                            <a href="https://github.com/MethmiHP/Gas-Management.git">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"><img src="./images/portfolio.jpg" class="img3" height="270px"></div>
-                    <div class="project-content">
-                        <h3>Portfolio Website</h3>
-                        <p>A responsive portfolio website showcasing my work and skills. Built with modern web technologies and optimized for performance.</p>
-                        <div class="project-links">
-                            <a href="#">Live Demo</a>
-                            <a href="#">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"><img src="./images/gas.jpg" class="img2" height="270px"></div>
-                    <div class="project-content">
-                        <h3>Finance Tracker</h3>
-                        <p>Mobile application using Kotlin (Android Studio)</p>
-                        <div class="project-links">
-                            <a href="https://methmihp.github.io/Gas-Management/">Live Demo</a>
-                            <a href="https://github.com/MethmiHP/Gas-Management.git">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image"><img src="./images/gas.jpg" class="img2" height="270px"></div>
-                    <div class="project-content">
-                        <h3>Event management System</h3>
-                        <p>UI/UX design using Figma</p>
-                        <div class="project-links">
-                            <a href="https://methmihp.github.io/Gas-Management/">Live Demo</a>
-                            <a href="https://github.com/MethmiHP/Gas-Management.git">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
 
     <!-- Projects Section -->
 <section id="projects" class="projects">
@@ -1577,15 +1710,16 @@
                 <div class="project-content">
                     <div class="project-tag">Web Development</div>
                     <h3>Nelson Enterprises - Gas Management System</h3>
-                    <p>A comprehensive sustainability-focused platform for managing solar energy use, recycling waste, and accessing solar marketplaces.</p>
+                    <p>An end-to-end solution for tracking and managing gases and accessories, enabling seamless order processing, real-time inventory updates, and efficient delivery operations.</p>
                     
                     <div class="project-features">
                         <h4>Key Features:</h4>
                         <ul>
-                            <li>EchoTrack (energy monitoring)</li>
-                            <li>BrightBin (recycling)</li>
-                            <li>Vendor portal</li>
-                            <li>Feedback integration</li>
+                            <li>User management</li>
+                            <li>Inventory management</li>
+                            <li>Order management</li>
+                            <li>Customer support management</li>
+                            <li>Delivery management</li>
                         </ul>
                     </div>
                     
@@ -1612,14 +1746,13 @@
                 <div class="project-content">
                     <div class="project-tag">Mobile Development</div>
                     <h3>Walletry - Expense Tracker App</h3>
-                    <p>Personal finance app for Android with comprehensive expense tracking, budgeting, and data management capabilities.</p>
+                    <p>Personal finance app for Android with comprehensive expense tracking, budgeting and data management capabilities.</p>
                     
                     <div class="project-features">
                         <h4>Key Features:</h4>
                         <ul>
                             <li>Charts & Analytics</li>
                             <li>Backup/Restore</li>
-                            <li>PIN Authentication</li>
                             <li>Currency Selection</li>
                             <li>Notifications</li>
                         </ul>
@@ -1645,17 +1778,17 @@
                 </div>
                 <div class="project-content">
                     <div class="project-tag">Web Development</div>
-                    <h3>MyWallet - Online music store</h3>
-                    <p>Secure online banking platform with complete transaction management and admin capabilities.</p>
+                    <h3>Melody Mart - Online music store</h3>
+                    <p>An e-commerce platform dedicated to selling a wide range of musical instruments and accessories, offering musicians of all levels quality gear, expert support, and convenient online shopping.</p>
                     
                     <div class="project-features">
                         <h4>Key Features:</h4>
                         <ul>
-                            <li>Secure Authentication</li>
-                            <li>Transaction Management</li>
-                            <li>Bill Payment</li>
-                            <li>Admin Panel</li>
-                            <li>Reward System</li>
+                            <li>User management</li>
+                            <li>Inventory management</li>
+                            <li>Payment management</li>
+                            <li>Order management</li>
+                            
                         </ul>
                     </div>
                     
@@ -1676,75 +1809,8 @@
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./images/gas.jpg" alt="Gas Management System" style="width: 100%; height: 200px; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <div class="project-tag">Web Development</div>
-                    <h3>Gas Management System</h3>
-                    <p>A collaborative gas & accessories management system with real-time updates and inventory tracking.</p>
-                    
-                    <div class="project-features">
-                        <h4>Key Features:</h4>
-                        <ul>
-                            <li>Inventory Management</li>
-                            <li>Real-time Updates</li>
-                            <li>Order Processing</li>
-                            <li>Customer Portal</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">PHP</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="#" class="project-link-btn">
-                            <span>🔗</span>
-                        </a>
-                      
-                       
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./images/finance.jpg" alt="Finance Tracker" style="width: 100%; height: 200px; object-fit: cover;">
-                </div>
-                <div class="project-content">
-                    <div class="project-tag">Mobile Development</div>
-                    <h3>Finance Tracker</h3>
-                    <p>Mobile application using Kotlin for comprehensive personal finance management and expense tracking.</p>
-                    
-                    <div class="project-features">
-                        <h4>Key Features:</h4>
-                        <ul>
-                            <li>Expense Tracking</li>
-                            <li>Budget Planning</li>
-                            <li>Financial Reports</li>
-                            <li>Category Management</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-tech">
-                        <span class="tech-tag">Kotlin</span>
-                        <span class="tech-tag">Android Studio</span>
-                        <span class="tech-tag">SQLite</span>
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="#" class="project-link-btn">
-                            <span>🔗</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
+           
+            
             <div class="project-card">
                 <div class="project-image">
                     <img src="./images/m.png" alt="Event Management System" style="width: 100%; height: 200px; object-fit: cover;">
@@ -1757,10 +1823,9 @@
                     <div class="project-features">
                         <h4>Key Features:</h4>
                         <ul>
-                            <li>Event Planning</li>
                             <li>Booking System</li>
                             <li>User Dashboard</li>
-                            <li>Admin Interface</li>
+                            <li>Notification system</li>
                         </ul>
                     </div>
                     
@@ -1893,50 +1958,32 @@
                
         </div>
 
-        <!-- Online Learning Stats
-        <div class="learning-stats">
-            <h3 class="subsection-title">📈 Continuous Learning</h3>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Online Courses</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Hours of Learning</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">8</div>
-                    <div class="stat-label">Certifications</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">4.8/5</div>
-                    <div class="stat-label">Average Score</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+      
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
+        <div class="container-contact">
+            <div class="contact-content"></div>
                 <h2 class="section-title">Let's Connect</h2>
-                <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p>
-                
-                <form class="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
+                <p>I'm always interested in new opportunities and collaborations. Feel free to reach out!</p><br>
+               
 
                 <div class="social-links">
-                    <a href="#" title="Email">📧</a>
-                    <a href="#" title="LinkedIn">💼</a>
-                    <a href="#" title="GitHub">🐙</a>
-                </div>
+
+                    <a href="mailto:methhpathirana@gmail.com?subject=Contact from Website">
+                        <img src="https://img.icons8.com/ios-filled/30/000000/new-post.png" alt="Email">
+                      </a>
+                    </a>
+                    <a href="https://github.com/MethmiHP" target="_blank" rel="noopener noreferrer" class="social-link">
+                      <img src="https://img.icons8.com/ios-filled/30/000000/github.png" alt="GitHub">
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/methmi-pathirana-91a4a2251?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" class="social-link">
+                      <img src="https://img.icons8.com/ios-filled/30/000000/linkedin.png" alt="LinkedIn">
+                    </a>
+                    
+                   
+                  </div>
             </div>
         </div>
     </section>
