@@ -75,6 +75,241 @@
 }
 
 
+/* Stars Container */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Individual Star */
+.star {
+    position: absolute;
+    background: #ffffff;
+    border-radius: 50%;
+    animation: glitter 2s ease-in-out infinite;
+}
+
+/* Star size variations */
+.star.small {
+    width: 1px;
+    height: 1px;
+    animation-duration: 1.5s;
+}
+
+.star.medium {
+    width: 2px;
+    height: 2px;
+    animation-duration: 2s;
+}
+
+.star.large {
+    width: 3px;
+    height: 3px;
+    animation-duration: 2.5s;
+}
+
+/* Glittering animation */
+@keyframes glitter {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Theme-based star colors */
+[data-theme="hacker"] .star {
+    background: #00ff41;
+    box-shadow: 0 0 6px #00ff41;
+}
+
+[data-theme="stranger"] .star {
+    background: #ff0040;
+    box-shadow: 0 0 8px #ff0040;
+}
+
+[data-theme="space"] .star {
+    background: #9d4edd;
+    box-shadow: 0 0 10px #9d4edd;
+}
+
+[data-theme="light"] .star {
+    background: #2563eb;
+    box-shadow: 0 0 4px #2563eb;
+    opacity: 0.6;
+}
+
+[data-theme="default"] .star {
+    background: #4a90e2;
+    box-shadow: 0 0 8px #4a90e2;
+}
+
+/* Shooting star effect */
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: linear-gradient(45deg, transparent, #ffffff, transparent);
+    border-radius: 50%;
+    animation: shoot 3s linear infinite;
+}
+
+@keyframes shoot {
+    0% {
+        transform: translateX(-100px) translateY(100px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100vw) translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Theme-based shooting stars */
+[data-theme="hacker"] .shooting-star {
+    background: linear-gradient(45deg, transparent, #00ff41, transparent);
+}
+
+[data-theme="stranger"] .shooting-star {
+    background: linear-gradient(45deg, transparent, #ff0040, transparent);
+}
+
+[data-theme="space"] .shooting-star {
+    background: linear-gradient(45deg, transparent, #9d4edd, transparent);
+}
+
+[data-theme="light"] .shooting-star {
+    background: linear-gradient(45deg, transparent, #2563eb, transparent);
+}
+
+/* Typing Animation */
+.typing-text {
+    display: inline-block;
+    position: relative;
+}
+
+.typing-text::after {
+    content: '|';
+    display: inline-block;
+    color: var(--primary-color);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+    font-weight: normal;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.typing-text.finished::after {
+    display: none;
+}
+
+/* Theme-specific cursor effects */
+[data-theme="hacker"] .typing-text::after {
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+[data-theme="stranger"] .typing-text::after {
+    text-shadow: 0 0 8px var(--primary-color);
+}
+
+[data-theme="space"] .typing-text::after {
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+
+/* Scroll Animation Base Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.7s ease-out;
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.7s ease-out;
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease-out;
+}
+
+.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.stagger-delay-1 { transition-delay: 0.1s; }
+.stagger-delay-2 { transition-delay: 0.2s; }
+.stagger-delay-3 { transition-delay: 0.3s; }
+.stagger-delay-4 { transition-delay: 0.4s; }
+
+/* Active states when visible */
+.fade-in.visible,
+.fade-in-left.visible,
+.fade-in-right.visible,
+.scale-in.visible,
+.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Special animations for specific elements */
+.skill-card {
+    transition: all 0.6s ease-out;
+}
+
+.project-card {
+    transition: all 0.7s ease-out;
+}
+
+.education-card,
+.cert-card {
+    transition: all 0.6s ease-out;
+}
+
+/* Progress bar animation for skills */
+.skill-progress {
+    width: 0;
+    height: 4px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+    margin-top: 10px;
+    transition: width 1.5s ease-out;
+    transition-delay: 0.3s;
+}
+
+.skill-card.visible .skill-progress {
+    width: 100%;
+}
+
         * {
             margin: 0;
             padding: 0;
@@ -400,13 +635,15 @@
 
 /* Primary CTA Button */
 .cta-button {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: var(--bg-primary);
+    background: transparent;
+    color:var(--primary-color);
     box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
 }
 
 .cta-button:hover {
     transform: translateY(-3px);
+    background: var(--primary-color);
+    color: var(--bg-primary);
     box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
 }
 
@@ -414,40 +651,42 @@
 .cta-secondary {
     background: transparent;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
 }
 
 .cta-secondary:hover {
+    transform: translateY(-3px);
     background: var(--primary-color);
     color: var(--bg-primary);
-    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
 }
 
 /* CV Download Button */
 .cv-download-btn {
-    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
-    color: var(--bg-primary);
-    box-shadow: 0 10px 30px rgba(123, 179, 255, 0.3);
+    background: transparent;
+    color: var(--primary-color);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
 }
 
 .cv-download-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(123, 179, 255, 0.4);
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
 }
 
 /* Game Trigger Button */
 .game-trigger {
-    background: var(--card-bg);
+    background: transparent;
     color: var(--primary-color);
-    border: 2px solid var(--primary-color);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
 }
 
 .game-trigger:hover {
+    transform: translateY(-3px);
     background: var(--primary-color);
     color: var(--bg-primary);
-    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(74, 144, 226, 0.4);
 }
 
 /* Theme-specific button styles */
@@ -1569,6 +1808,9 @@
 </head>
 <body data-theme="default">
     <!-- Theme Toggle Button -->
+    <div class="stars-container" id="starsContainer">
+        <!-- Stars will be generated by JavaScript -->
+    </div>
     <button class="theme-toggle" onclick="toggleThemeSelector()">🎨</button>
 
     <!-- Theme Selector -->
@@ -1623,15 +1865,9 @@
             <div class="hero-content">
                 <div class="hero-text">
                     <h1>Hi, I'm Methmi</h1>
-                    <h2>Programming Enthusiast</h2>
-                    <p>I’m a dedicated Software Engineering undergraduate with a strong interest in full-stack development.
-                         I enjoy building innovative applications, solving real-world problems through code, and turning 
-                         ideas into user-friendly digital experiences.</p>
-                    <!-- <div class="hero-buttons">
-                        <a href="#contact" class="cta-button">Get In Touch</a>
-                        <a href="#projects" class="cta-secondary">View My Work</a>
-                        <button class="game-trigger" onclick="openGame()">🎮 Play Code Challenge</button>
-                    </div> -->
+                    <h2 class="typing-text" id="typingText">Programming Enthusiast</h2>
+                    <p></p>
+                   
                     <div class="hero-buttons">
                         <a href="#contact" class="cta-button">Get In Touch</a>
                         <a href="#projects" class="cta-secondary">View My Work</a>
@@ -1654,7 +1890,9 @@
         <div class="about-content">
             <div class="about-text">
                 <h2>About Me</h2>
-                <p>I'm a passionate software engineer with expertise in full-stack development, focused on creating innovative solutions and leading teams to success.</p>
+                <p>I’m a dedicated Software Engineering undergraduate with a strong interest in full-stack development.
+                    I enjoy building innovative applications, solving real-world problems through code, and turning 
+                    ideas into user-friendly digital experiences..</p>
                 
                 <h3>What I do</h3>
                 <ul>
@@ -1996,6 +2234,307 @@
     </footer>
 
     <script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add animation classes to different sections
+    
+    // About section
+    const aboutText = document.querySelector('.about-text');
+    const aboutImage = document.querySelector('.about-image');
+    if (aboutText) aboutText.classList.add('fade-in-left');
+    if (aboutImage) aboutImage.classList.add('fade-in-right');
+    
+    // Skills section
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach((card, index) => {
+        card.classList.add('scale-in', `stagger-delay-${(index % 3) + 1}`);
+        
+        // Add progress bars to skill cards
+        const progressBar = document.createElement('div');
+        progressBar.className = 'skill-progress';
+        card.appendChild(progressBar);
+    });
+    
+    // Projects section
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        if (index % 2 === 0) {
+            card.classList.add('fade-in-left', `stagger-delay-${(index % 3) + 1}`);
+        } else {
+            card.classList.add('fade-in-right', `stagger-delay-${(index % 3) + 1}`);
+        }
+    });
+    
+    // Education section
+    const educationCards = document.querySelectorAll('.education-card');
+    educationCards.forEach((card, index) => {
+        card.classList.add('slide-up', `stagger-delay-${index + 1}`);
+    });
+    
+    // Certification cards
+    const certCards = document.querySelectorAll('.cert-card');
+    certCards.forEach((card, index) => {
+        card.classList.add('scale-in', `stagger-delay-${(index % 3) + 1}`);
+    });
+    
+    // Stats cards
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach((card, index) => {
+        card.classList.add('fade-in', `stagger-delay-${index + 1}`);
+    });
+    
+    // Section titles
+    const sectionTitles = document.querySelectorAll('.section-title, .subsection-title');
+    sectionTitles.forEach(title => {
+        title.classList.add('fade-in');
+    });
+    
+    // Video cards
+    const videoCards = document.querySelectorAll('.video-card');
+    videoCards.forEach((card, index) => {
+        card.classList.add('scale-in', `stagger-delay-${index + 1}`);
+    });
+    
+    // Contact section
+    const contactContent = document.querySelector('.contact-content');
+    if (contactContent) contactContent.classList.add('fade-in');
+    
+    // Initialize intersection observer
+    initScrollAnimations();
+});
+
+// Intersection Observer for scroll animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                // Special handling for stat cards with number animation
+                if (entry.target.classList.contains('stat-card')) {
+                    animateStatNumber(entry.target);
+                }
+                
+                // Unobserve after animation to prevent re-triggering
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all animated elements
+    const animatedElements = document.querySelectorAll(
+        '.fade-in, .fade-in-left, .fade-in-right, .scale-in, .slide-up'
+    );
+    
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Animate numbers in stat cards
+function animateStatNumber(statCard) {
+    const numberElement = statCard.querySelector('.stat-number');
+    if (!numberElement) return;
+    
+    const finalNumber = parseInt(numberElement.textContent);
+    const duration = 2000; // 2 seconds
+    const stepTime = 50; // Update every 50ms
+    const steps = duration / stepTime;
+    const increment = finalNumber / steps;
+    
+    let currentNumber = 0;
+    numberElement.textContent = '0';
+    
+    const timer = setInterval(() => {
+        currentNumber += increment;
+        if (currentNumber >= finalNumber) {
+            numberElement.textContent = finalNumber + (finalNumber > 1 ? '+' : '');
+            clearInterval(timer);
+        } else {
+            numberElement.textContent = Math.floor(currentNumber) + (finalNumber > 1 ? '+' : '');
+        }
+    }, stepTime);
+}
+
+// Add floating animation to hero image on scroll
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.profile-image');
+    
+    if (parallax) {
+        const speed = scrolled * 0.2;
+        parallax.style.transform = `translateY(${speed}px) scale(1)`;
+    }
+    
+    // Add subtle parallax to background elements
+    const heroSection = document.querySelector('.header');
+    if (heroSection && scrolled < window.innerHeight) {
+        heroSection.style.transform = `translateY(${scrolled * 0.1}px)`;
+    }
+});
+
+// Enhance theme transitions with animations
+function setTheme(theme) {
+    // Add transition class to body
+    document.body.classList.add('theme-transition');
+    
+    // Set the theme
+    document.body.setAttribute('data-theme', theme);
+    
+    // Update active theme option
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Close theme selector
+    document.getElementById('themeSelector').classList.remove('open');
+    
+    // Store theme preference
+    localStorage.setItem('portfolioTheme', theme);
+    
+    // Remove transition class after animation
+    setTimeout(() => {
+        document.body.classList.remove('theme-transition');
+    }, 500);
+    
+    // Recreate stars with new theme colors
+    setTimeout(createStars, 500);
+}
+
+// Add smooth theme transition
+const themeTransitionStyle = document.createElement('style');
+themeTransitionStyle.textContent = `
+    .theme-transition * {
+        transition: all 0.5s ease-out !important;
+    }
+`;
+document.head.appendChild(themeTransitionStyle);
+
+// Create glittering stars
+function createStars() {
+    const container = document.getElementById('starsContainer');
+    const numberOfStars = 150; // Adjust number of stars
+    
+    // Clear existing stars
+    container.innerHTML = '';
+    
+    for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random size
+        const sizes = ['small', 'medium', 'large'];
+        const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+        star.classList.add(randomSize);
+        
+        // Random position
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay
+        star.style.animationDelay = Math.random() * 3 + 's';
+        
+        container.appendChild(star);
+    }
+    
+    // Create occasional shooting stars
+    createShootingStars();
+}
+
+// Create shooting stars
+function createShootingStars() {
+    const container = document.getElementById('starsContainer');
+    
+    setInterval(() => {
+        // Only create shooting star occasionally
+        if (Math.random() < 0.3) {
+            const shootingStar = document.createElement('div');
+            shootingStar.className = 'shooting-star';
+            
+            // Random starting position
+            shootingStar.style.left = Math.random() * 50 + '%';
+            shootingStar.style.top = Math.random() * 50 + 50 + '%';
+            
+            container.appendChild(shootingStar);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (shootingStar.parentNode) {
+                    shootingStar.parentNode.removeChild(shootingStar);
+                }
+            }, 3000);
+        }
+    }, 4000); // Every 4 seconds
+}
+
+// Add this to your existing DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    // Your existing code...
+    
+    // Initialize stars
+    createStars();
+});
+
+// Update your existing setTheme function to recreate stars
+function setTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    
+    // Update active theme option
+    document.querySelectorAll('.theme-option').forEach(option => {
+        option.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Close theme selector
+    document.getElementById('themeSelector').classList.remove('open');
+    
+    // Store theme preference
+    localStorage.setItem('portfolioTheme', theme);
+    
+    // Recreate stars with new theme colors
+    setTimeout(createStars, 500);
+}
+
+// Typing animation function
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    element.classList.remove('finished');
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        } else {
+            // Hide cursor after typing is complete
+            setTimeout(() => {
+                element.classList.add('finished');
+            }, 1000);
+        }
+    }
+    type();
+}
+
+// Initialize typing animation when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    const typingElement = document.getElementById('typingText');
+    const textToType = "Programming Enthusiast";
+    
+    // Start typing animation after a short delay
+    setTimeout(() => {
+        typeWriter(typingElement, textToType, 120);
+    }, 1000);
+    
+    // Your existing DOMContentLoaded code...
+});
         // Game variables
         let gameScore = 0;
         let currentChallenge = {};
