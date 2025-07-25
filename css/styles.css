@@ -1741,60 +1741,141 @@
     }
 }
 
+/* Enhanced Video Showcase Styles */
 .video-showcase-section {
-    padding: 40px 0 60px 0;
-    background: var(--card-bg);
+    padding: 80px 0;
+    background: var(--bg-secondary);
 }
 
 .video-showcase {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .video-card {
-    background: var(--card-bg);
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-    width: 100%;
-    max-width: 300px;
+    background: var(--bg-primary);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    height: 400px; /* Fixed height for all cards */
 }
 
 .video-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 30px 60px var(--border-color);
-    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .video-title {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: var(--text-primary);
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent title from shrinking */
 }
 
-.video-card video {
-    width: 250px;
-    height: 140px;
-    max-width: 100%;
-    border-radius: 15px;
-    margin-bottom: 10px;
+.video-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+    flex: 1; /* Take up remaining space */
+    display: flex;
+    align-items: center;
+}
+
+.video-container video {
+    width: 100%;
+    height: 200px; /* Fixed height for all videos */
+    border-radius: 10px;
     background: #000;
-    object-fit: cover;
-    display: block;
+    outline: none;
+    object-fit: cover; /* Maintain aspect ratio while filling container */
 }
 
-@media (max-width: 900px) {
-    .video-showcase-section .container { padding: 20px 5px; }
-    .video-card video { max-width: 90vw; }
+.video-container video:focus {
+    box-shadow: 0 0 0 3px var(--primary-color);
 }
-@media (max-width: 600px) {
-    .video-title { font-size: 1rem; }
-    .video-card { padding: 15px; }
-    .video-card video { max-width: 98vw; }
+
+.video-links {
+    text-align: center;
+    flex-shrink: 0; /* Prevent links from shrinking */
+    margin-top: auto; /* Push to bottom */
+}
+
+.linkedin-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: var(--bg-primary);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.linkedin-link:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-showcase {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .video-card {
+        padding: 20px;
+        height: 350px; /* Slightly smaller on mobile */
+    }
+    
+    .video-container video {
+        height: 180px; /* Smaller video height on mobile */
+    }
+    
+    .video-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-card {
+        height: 320px;
+    }
+    
+    .video-container video {
+        height: 160px;
+    }
+}
+
+/* Loading state for videos */
+.video-container video {
+    background-image: linear-gradient(45deg, #f0f0f0 25%, transparent 25%),
+                       linear-gradient(-45deg, #f0f0f0 25%, transparent 25%),
+                       linear-gradient(45deg, transparent 75%, #f0f0f0 75%),
+                       linear-gradient(-45deg, transparent 75%, #f0f0f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Dark theme adjustments */
+[data-theme="default"] .video-container video,
+[data-theme="hacker"] .video-container video,
+[data-theme="stranger"] .video-container video,
+[data-theme="space"] .video-container video {
+    background-image: linear-gradient(45deg, #333 25%, transparent 25%),
+                       linear-gradient(-45deg, #333 25%, transparent 25%),
+                       linear-gradient(45deg, transparent 75%, #333 75%),
+                       linear-gradient(-45deg, transparent 75%, #333 75%);
 }
